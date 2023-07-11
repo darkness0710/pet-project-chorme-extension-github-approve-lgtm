@@ -1,0 +1,66 @@
+<html>
+    <title>Github approve request</title>
+    <meta https-equiv="Content-Security-Policy" content="default-src *;" />
+    <script src="./../scripts/content.js"></script>
+    <body>
+        <div class="container">
+            <!-- <label for="domain">Github domain (owner/repo):</label>
+            <input type="text" id="domain"> -->
+            <label for="key">Token API:</label>
+            <input type="text" id="key">
+            <label for="content">Content:</label>
+            <input type="text" id="content" value="![](https://raw.githubusercontent.com/onevcat/lgtm-images/master/images/7jp5aOU.jpg)">
+            <p>Example content: <a href="https://github.com/onevcat/lgtm-images">https://github.com/onevcat/lgtm-images</a></p>
+            <!-- <p>Example Github domain: framgia/abc-xyz</p> -->
+            <button id="save">Save!</button>
+        </div>
+    </body>
+</html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+      }
+  
+      .container {
+        width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+  
+      h2 {
+        text-align: center;
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+  
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+  
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+  
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+</style>
