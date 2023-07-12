@@ -28,7 +28,7 @@ chrome.contextMenus.onClicked.addListener(function (clickData) {
     async function getDomain() {
       let url = "";
       if (clickData.menuItemId == "approvePullRequestFromString") {
-        url = clickData.selectionText;
+        url = clickData.linkUrl;
       } else {
         url = await getCurrentTabUrl();
       }
@@ -57,7 +57,7 @@ chrome.contextMenus.onClicked.addListener(function (clickData) {
     async function getPullNumber() {
       let url = "";
       if (clickData.menuItemId == "approvePullRequestFromString") {
-        url = clickData.selectionText;
+        url = clickData.linkUrl;
       } else {
         url = await getCurrentTabUrl();
       }
