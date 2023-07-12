@@ -1,21 +1,23 @@
-chrome.contextMenus.create({
-  id: "approvePullRequestId",
-  title: "Approve pull request",
-  contexts: ["all"],
-});
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    id: "approvePullRequestId",
+    title: "Approve pull request",
+    contexts: ["all"],
+  });
 
-chrome.contextMenus.create({
-  id: "approvePullRequestFromString",
-  title: "Approve Pull Request From Url",
-  parentId: "approvePullRequestId",
-  contexts: ["all"],
-});
+  chrome.contextMenus.create({
+    id: "approvePullRequestFromString",
+    title: "Approve Pull Request From Url",
+    parentId: "approvePullRequestId",
+    contexts: ["all"],
+  });
 
-chrome.contextMenus.create({
-  id: "approvePullRequestFromCurrentPage",
-  title: "Approve Pull Request From Current Page",
-  parentId: "approvePullRequestId",
-  contexts: ["all"],
+  chrome.contextMenus.create({
+    id: "approvePullRequestFromCurrentPage",
+    title: "Approve Pull Request From Current Page",
+    parentId: "approvePullRequestId",
+    contexts: ["all"],
+  });
 });
 
 chrome.contextMenus.onClicked.addListener(function (clickData) {
