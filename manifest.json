@@ -14,10 +14,7 @@
       "js": [
         "scripts/content.js"
       ],
-      "matches": [
-        "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
-      ]
+      "matches": ["<all_urls>"]
     }
   ],
   "permissions": [
@@ -25,14 +22,16 @@
     "contextMenus",
     "storage",
     "notifications",
-    "tabs"
+    "tabs",
+    "commands"
   ],
   "options_page": "src/option.html",
   "background": {
-    "service_worker": "scripts/eventPage.js"
+    "service_worker": "scripts/background.js",
+    "type": "module"
   },
   "action": {
-    "default_title": "Click Me",
+    "default_title": "Github Support",
     "default_popup": "src/popup.html"
   }
 }

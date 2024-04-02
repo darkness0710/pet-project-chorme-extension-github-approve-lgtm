@@ -1,24 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    async function getKey() {
-        return await chrome.storage.sync.get("key");
+// options page
+// document.addEventListener('DOMContentLoaded', async () => {
+//   const helper = new GithubSupportInject();
+//   console.log('loaded');
+//   const data = await helper.getAllStorageData();
+//   document.getElementById('key').value = data.key;
+//   document.getElementById('content').value = data.content;
+//   document.getElementById('save').onclick = async function () {
+//     await base.setStorageData(
+//       document.getElementById('key').value,
+//       document.getElementById('content').value
+//     )
+//     alert('Update success!');
+//   }
+// });
+
+// client Page
+document.addEventListener("contextmenu", function(event) {
+  window.clickedEl = event.target;
+});
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.action === "getActiveElement") {
+    const newParagraph = document.createElement('p');
+    const debugParagraph = document.getElementById('githubSupportInject');
+    if (debugParagraph) {
+      debugParagraph.parentNode.removeChild(debugParagraph);
     }
-
-    async function getContent() {
-        return await chrome.storage.sync.get("content");
-    }
-
-    getKey().then(data => {
-        document.getElementById('key').value = data.key;
-    });
-
-    getContent().then(data => {
-        document.getElementById('content').value = data.content;
-    });
-
-    document.getElementById('save').onclick = function(){
-        const key = document.getElementById('key').value;
-        const content = document.getElementById('content').value;
-        chrome.storage.sync.set({'key':  key});
-        chrome.storage.sync.set({'content':  content});
-    }
+    window.clickedEl.insertAdjacentHTML('afterend', request.payload);
+  }
+  return sendResponse({value: 'ok'});
 });
